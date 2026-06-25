@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>江南体育 · 资料索引与产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #1e1e2f;
+            background: #f5f6fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            flex: 1;
+        }
+
+        /* ——— Dark hero ——— */
+        .hero {
+            background: linear-gradient(145deg, #0c0e1a 0%, #1b1f33 100%);
+            color: #eaeef2;
+            text-align: center;
+            padding: 80px 24px 56px;
+            border-radius: 0 0 32px 32px;
+            margin: 0 -24px 40px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 12px;
+        }
+
+        .hero .sub {
+            font-size: 1.15rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 18px;
+            font-weight: 400;
+        }
+
+        .hero .meta {
+            font-size: 0.9rem;
+            opacity: 0.55;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 18px;
+            margin-top: 6px;
+            display: inline-block;
+        }
+
+        /* ——— 正文卡片区 ——— */
+        .section-title {
+            font-size: 1.55rem;
+            font-weight: 550;
+            margin: 48px 0 18px 0;
+            padding-bottom: 6px;
+            border-bottom: 3px solid #d6dae7;
+            color: #16192b;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 8px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin: 20px 0 28px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 28px 22px 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.15s ease, box-shadow 0.2s;
+            border: 1px solid #eceef5;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0, 20, 40, 0.08);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 550;
+            margin-bottom: 10px;
+            color: #1b1f33;
+        }
+
+        .card p {
+            font-size: 0.97rem;
+            color: #3b3f52;
+            line-height: 1.7;
+        }
+
+        .card .tag {
+            display: inline-block;
+            background: #eef0f7;
+            color: #1f2a4a;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 2px 10px;
+            border-radius: 40px;
+            letter-spacing: 0.3px;
+            margin-top: 12px;
+        }
+
+        /* ——— 引用与提示 ——— */
+        .notice-box {
+            background: #f0f2fa;
+            border-left: 6px solid #4a5a8a;
+            padding: 20px 24px;
+            margin: 32px 0 28px;
+            border-radius: 12px 18px 18px 12px;
+        }
+
+        .notice-box strong {
+            color: #0c1a3a;
+        }
+
+        .faq-item {
+            padding: 14px 0 10px 0;
+            border-bottom: 1px solid #e2e5ef;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-item h4 {
+            font-weight: 550;
+            font-size: 1.05rem;
+            color: #11162b;
+            margin-bottom: 4px;
+        }
+
+        .faq-item p {
+            font-size: 0.95rem;
+            color: #42465b;
+        }
+
+        /* ——— 强调色链接 ——— */
+        a {
+            color: #2b4899;
+            text-decoration: none;
+            font-weight: 475;
+            transition: color 0.15s, border-bottom 0.1s;
+            border-bottom: 1px solid transparent;
+        }
+
+        a:hover {
+            color: #112255;
+            border-bottom-color: #2b4899;
+        }
+
+        /* ——— 页脚 ——— */
+        .footer-note {
+            margin-top: 48px;
+            padding: 28px 0 36px;
+            text-align: center;
+            color: #7a7f92;
+            font-size: 0.85rem;
+            border-top: 1px solid #dde0ea;
+        }
+
+        .footer-note a {
+            color: #3e4e7a;
+        }
+
+        /* ——— 响应式 ——— */
+        @media (max-width: 680px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero {
+                padding: 56px 18px 40px;
+                margin: 0 -18px 28px;
+            }
+            .page {
+                padding: 0 16px;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .card {
+                padding: 24px 18px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero .sub {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <header class="hero">
+        <h1>江南体育 · 信息索引</h1>
+        <div class="sub">从资料整理与产品说明出发，梳理实用线索、功能亮点与使用场景</div>
+        <div class="meta">方向：产品说明式 · 索引向 · 2025</div>
+    </header>
+
+    <!-- 摘要区 -->
+    <h2 class="section-title">📋 摘要 · 产品定位</h2>
+    <div class="notice-box">
+        <strong>江南体育</strong> 是一套整合了资讯、数据、互动等模块的综合服务页面。本文档从信息组织角度，将其核心模块归纳为：内容聚合、实时更新、用户指引。以下整理均基于公开的产品界面与功能逻辑，不包含任何未经确认的承诺或保证。
+    </div>
+
+    <!-- 亮点卡片 -->
+    <h2 class="section-title">✨ 功能亮点</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>信息索引结构</h3>
+            <p>将赛事热点、专题汇总、分类浏览整合为清晰导航，方便按兴趣快速定位内容。同时提供搜索与标签筛选，降低信息噪音。</p>
+            <span class="tag">资料整理</span>
+        </div>
+        <div class="card">
+            <h3>实时动态模块</h3>
+            <p>独立的滚动资讯与比分/结果更新区域，减少手动刷新的频率。数据来源标注清晰，用户可自行核对时效性。</p>
+            <span class="tag">更新节奏</span>
+        </div>
+        <div class="card">
+            <h3>轻量引导说明</h3>
+            <p>首次访问时提供简单的版块介绍与常用操作指引，帮助新用户快速上手。引导内容不涉及任何诱导性话术。</p>
+            <span class="tag">易用性</span>
+        </div>
+    </div>
+
+    <!-- 使用建议 -->
+    <h2 class="section-title">🧭 使用建议</h2>
+    <p style="margin-bottom: 12px; color: #31354a;">
+        根据对页面结构的观察，以下场景可能适合利用 <a href="https://ssl-jiangnansport.com">江南体育</a> 所提供的信息内容：
+    </p>
+    <ul style="padding-left: 28px; margin: 8px 0 28px; color: #3b3f52;">
+        <li style="margin-bottom: 8px;"><strong>日常资讯浏览</strong> —— 通过首页导航进入「热门」「最新」等分类，获取经过归类的文章或数据条目。</li>
+        <li style="margin-bottom: 8px;"><strong>专题回顾与整理</strong> —— 部分栏目会汇总同一主题下的历史内容，适合做资料收集或回看。</li>
+        <li style="margin-bottom: 8px;"><strong>快速查阅实时信息</strong> —— 如果页面上提供记分牌或动态列表，可作为辅助参考之一，但建议结合其他渠道交叉验证。</li>
+    </ul>
+
+    <!-- 场景卡片 (差异化展示) -->
+    <div class="card-grid" style="margin-top: 6px;">
+        <div class="card">
+            <h3>📌 个人兴趣索引</h3>
+            <p>把自己关注的联赛、队伍或关键词加入收藏或标记，下次可从入口直接跳转，节省重复查找时间。</p>
+        </div>
+        <div class="card">
+            <h3>📌 信息对比参考</h3>
+            <p>若同时打开多个页面，可以利用江南体育的列表式布局进行横向对比，但需注意数据更新可能存在延迟。</p>
+        </div>
+        <div class="card">
+            <h3>📌 内容聚合阅读</h3>
+            <p>部分专题页面将相关新闻、数据、图文整合在一起，符合“一站式资料整理”的使用思路。</p>
+        </div>
+    </div>
+
+    <!-- 可信但克制的说明 -->
+    <h2 class="section-title">⚖️ 关于信息可靠性的提示</h2>
+    <div class="notice-box" style="border-left-color: #7a7f92; background: #f7f8fc;">
+        <strong>使用须知：</strong> 本站所有内容（包括但不限于文字、数据、图片）均来自公开页面展示。信息的准确性、完整性与时效性可能随运营调整而变化。建议用户结合多个独立来源进行判断，不将单一页面作为决策的唯一依据。平台方未对本文档进行任何背书。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <h2 class="section-title">❓ FAQ 摘要</h2>
+    <div class="faq-item">
+        <h4>这个页面的内容会频繁变动吗？</h4>
+        <p>首页的推荐、热门区块会依据运营节奏更新；分类及索引结构相对稳定，但仍可能重新组织。</p>
+    </div>
+    <div class="faq-item">
+        <h4>是否需要注册才能浏览大部分内容？</h4>
+        <p>根据界面信息，资讯和公开数据板块无需登录即可阅读；个别互动或个性化功能可能要求注册。</p>
+    </div>
+    <div class="faq-item">
+        <h4>如何最快找到自己感兴趣的板块？</h4>
+        <p>建议先使用顶部导航或搜索框。如果页面提供“全部栏目”展开按钮，也可以快速纵览所有分区。</p>
+    </div>
+    <div class="faq-item">
+        <h4>页面上的数据（如比分）是实时推送的吗？</h4>
+        <p>部分模块采用轮询或自动刷新机制，但具体频率未公开。可作为辅助参考，不建议用于实时性要求极高的场景。</p>
+    </div>
+
+    <div class="footer-note">
+        <p>本文档为资料整理与产品说明，内容基于公开信息。直接访问 <a href="https://ssl-jiangnansport.com">江南体育</a> 以获取最新页面。</p>
+        <p style="margin-top: 10px;">© 索引页 · 不隶属于官方 · 仅供参考</p>
+    </div>
+</div>
+</body>
+</html>
